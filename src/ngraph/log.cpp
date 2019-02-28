@@ -55,9 +55,10 @@ LogHelper::LogHelper(LOG_TYPE type,
         strftime(buffer, sizeof(buffer), "%Y-%m-%dT%H:%M:%Sz", tm);
         m_stream << buffer << " ";
     }
-
+#ifdef NGRAPH_DEBUG_ENABLE
     m_stream << file;
     m_stream << " " << line;
+#endif
     m_stream << "\t";
 }
 

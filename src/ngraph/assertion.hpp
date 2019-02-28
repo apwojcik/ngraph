@@ -110,6 +110,8 @@ namespace ngraph
             if (!std::uncaught_exception())
             {
                 std::stringstream ss;
+
+#ifdef NGRAPH_DEBUG_ENABLE
                 if (!m_location_info.empty())
                 {
                     ss << m_location_info << ":" << std::endl;
@@ -125,6 +127,7 @@ namespace ngraph
                 }
 
                 ss << "at " << m_file << ":" << m_line << ":" << std::endl;
+#endif
 
                 std::string explanation = m_stream.str();
                 if (explanation.empty())
